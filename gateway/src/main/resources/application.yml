@@ -1,0 +1,85 @@
+spring:
+  application:
+    name: gateway
+        
+        
+  cloud:
+    ## Configura Gateway ## 
+    gateway:
+      default-filters:
+        - TokenRelay=
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+          
+  # CONFIGURA CLIENTE AUTH
+  security:
+    oauth2:
+      client:
+        registration:
+          gateway:
+            provider: autorizacao
+            client-id: gateway
+            client-secret: cliente123
+            authorization-grant-type: client_credentials
+            scope:
+            - openid
+            - read
+            - write
+            client-name: gateway-client
+        provider:
+          autorizacao:
+            issuer-uri: http://127.0.0.1:8081
+     
+         
+          
+            
+# CONFIGURA SERVIDOR GATEWAY   
+server:
+  port: ${SERVER_PORT:8080} 
+  
+
+
+# CONFIGURA EUREKA CLIENTE
+eureka:
+  client:
+    fetch-registry: true 
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761/eureka}
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+    
+    
+# CONFIGURA SPRINGDOC SWAGGER
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    configUrl: ${GATEWAY_CONTEXTO_SWAGGER_CONFIG:/v3/api-docs/swagger-config}
+    path: /swagger-ui.html
+    filter: true # ATIVA FILTRAGEM DE ENDPOIT NA BARRA SUPERIOR
+    display-request-duration: true 
+    operationsSorter: method  # ORDENA ENDPOIT DENTRO DE TAG POR METODO
+    tagsSorter: alpha # ORDENA TAG EM ORDEM ALFABETICA
+    urls:
+      - name: gateway
+        url: /gateway/v3/api-docs
+      - name: resource-server1
+        url: /resource-server1/v3/api-docs
+      - name: resource-server2
+        url: /resource-server2/v3/api-docs
+        
+        
+    
+    
+# HABILITA LOG
+logging:
+  level:
+    org: 
+      springframework: 
+        security: TRACE

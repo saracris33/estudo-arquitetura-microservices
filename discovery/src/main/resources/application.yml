@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: sda-discovery
+    
+server:
+  port: ${SERVER_PORT:8761}
+
+    
+# CONFIGURA EUREKA PARA NAO SE REGISTRAR E NEM GUARDAR INFORMACOES CACHEADA LOCALMENTE
+eureka:
+  client:
+    fetch-registry: false 
+    register-with-eureka: false
+    service-url:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761/eureka}

@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: autorizacao
+
+
+
+# CONFIGURA SERVIDOR AUTORIZACAO 
+server:
+  port: ${SERVER_PORT:8081}
+  
+
+# HABILITA LOG
+logging:
+  level:
+    org: 
+      springframework: 
+        security: TRACE
+        
+        
+
+# CONFIGURACAO CUSTOMIZADA SERVIDOR DE AUTORIZACAO
+autorizacao:
+  auth:
+    provider-url: http://127.0.0.1:8081

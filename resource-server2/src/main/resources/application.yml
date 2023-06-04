@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: resource-server2
+    
+  # CONFIGURA SEGURANCA   
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://127.0.0.1:8081
+          
+
+# CONFIGURA SERVIDOR    
+server:
+  port: ${SERVER_PORT:8084}
+  
+  
+  
+# CONFIGURA EUREKA CLIENTE
+eureka:
+  client:
+    fetch-registry: true 
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761/eureka}
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+    
+    
+# HABILITA LOG
+logging:
+  level:
+    org: 
+      springframework: 
+        security: TRACE
