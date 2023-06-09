@@ -26,6 +26,7 @@ ext {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-authorization-server'
 
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
@@ -36,6 +37,10 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+	
+		// Swagger 3 com Spring doc
+	implementation 'org.springdoc:springdoc-openapi-starter-common:2.1.0'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
 }
 
 

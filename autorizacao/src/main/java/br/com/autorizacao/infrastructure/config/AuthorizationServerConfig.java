@@ -128,16 +128,16 @@ public class AuthorizationServerConfig {
 	public AuthorizationServerSettings providerSettings(AutorizacaoProperties properties) {
 		return AuthorizationServerSettings.builder()
 				.issuer(properties.getProviderUrl())
-				//.authorizationEndpoint("/sda/backend/api/oauth2/authorize")
-				//.deviceAuthorizationEndpoint("/sda/backend/api/oauth2/device_authorization")
-				//.deviceVerificationEndpoint("/sda/backend/api/oauth2/device_verification")
-				//.tokenEndpoint("/sda/backend/api/oauth2/token")
-				//.tokenIntrospectionEndpoint("/sda/backend/api/oauth2/introspect")
-				//.tokenRevocationEndpoint("/sda/backend/api/oauth2/revoke")
-				//.jwkSetEndpoint("/sda/backend/api/oauth2/jwks")
-				//.oidcLogoutEndpoint("/sda/backend/api/connect/logout")
-				//.oidcUserInfoEndpoint("/sda/backend/api/connect/userinfo")
-				//.oidcClientRegistrationEndpoint("/sda/backend/api/connect/register")
+				//.authorizationEndpoint("/api/oauth2/authorize")
+				//.deviceAuthorizationEndpoint("/api/oauth2/device_authorization")
+				//.deviceVerificationEndpoint("/api/oauth2/device_verification")
+				//.tokenEndpoint("/api/oauth2/token")
+				//.tokenIntrospectionEndpoint("/api/oauth2/introspect")
+				//.tokenRevocationEndpoint("/api/oauth2/revoke")
+				//.jwkSetEndpoint("/api/oauth2/jwks")
+				//.oidcLogoutEndpoint("/api/connect/logout")
+				//.oidcUserInfoEndpoint("/api/connect/userinfo")
+				//.oidcClientRegistrationEndpoint("/api/connect/register")
 				.build();
 	}
 

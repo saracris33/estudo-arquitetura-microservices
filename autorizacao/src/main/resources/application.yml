@@ -7,6 +7,9 @@ spring:
 # CONFIGURA SERVIDOR AUTORIZACAO 
 server:
   port: ${SERVER_PORT:8081}
+  servlet:
+    encoding:
+      charset: UTF-8
   
 
 # HABILITA LOG
@@ -15,8 +18,16 @@ logging:
     org: 
       springframework: 
         security: TRACE
+   
         
-        
+# CONFIGURA SPRING DOC PARA RODAR NO GATEWAY
+springdoc:
+  api-docs:
+    path: /v3/api-docs #URL usada ​​para carregar o swagger ui deste serviço pelo gateway de API 
+  show-oauth2-endpoints: true # HABILITA EXIBICAO END POIT AUTHORIZATION SERVER
+  swagger-ui:
+    path: /swagger-ui.html
+      
 
 # CONFIGURACAO CUSTOMIZADA SERVIDOR DE AUTORIZACAO
 autorizacao:
